@@ -1,0 +1,105 @@
+{% extends "app/layout.html" %}
+{% block content %}
+{% if form != None %}
+<head>
+    <meta charset="utf-8" />
+    <title>Анкета</title>
+    <style>
+        /* стили для полей ввода */
+        input[type="text"], textarea {
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* стили для кнопки отправки формы */
+        button[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        /* динамические эффекты */
+        /* изменение цвета надписи на кнопке при наведении курсора */
+        button[type="submit"]:hover {
+            background-color: #6c757d;
+            color: #fff;
+        }
+
+        /* изменение цвета фона поля при выборе для ввода */
+        input[type="text"]:focus, textarea:focus {
+            background-color: #f8f9fa;
+        }
+    </style>
+    <script>
+        var inputs = document.querySelectorAll('.hover-effect');
+        inputs.forEach(function(input) {
+            input.addEventListener('mouseover', function() {
+                this.style.backgroundColor = 'yellow';
+            });
+            input.addEventListener('mouseout', function() {
+                this.style.backgroundColor = '';
+            });
+        });
+        function setButtonColor() {
+            var button = document.getElementById("submit-button");
+            button.style.backgroundColor = "#6c757d";
+            button.style.color = "#fff";
+        }
+
+        function resetButtonColor() {
+            var button = document.getElementById("submit-button");
+            button.style.backgroundColor = "#007bff";
+            button.style.color = "#fff";
+        }
+    </script>
+</head>
+<body>
+    <h1>Обратная связь</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <label for="{{ form.name.id_for_label }}">Ваше имя:</label>
+            {{ form.name }}
+        </div>
+        <div>
+            <label for="{{ form.city.id_for_label }}">Ваш город:</label>
+            {{ form.city }}
+        </div>
+        <div>
+            <label for="{{ form.gender.id_for_label }}">Вы уже пользовались услугами нашей компании?:</label>
+            {{ form.gender }}
+        </div>
+        <div>
+            <label for="{{ form.internet.id_for_label }}">Как часто вы пользуетесь услугами нашей компании:</label>
+            {{ form.internet }}
+        </div>
+        <div>
+            <label for="{{ form.notice.id_for_label }}">Получать новости сайта на почту:</label>
+            {{ form.notice }}
+        </div>
+        <div>
+            <label for="{{ form.email.id_for_label }}">Ваша почта:</label>
+            {{ form.email }}
+        </div>
+        <div>
+            <label for="{{ form.message.id_for_label }}">Пожелания по работе нашей компании:</label>
+            {{ form.message }}
+        </div>
+        <button type="submit">Отправить</button>
+    </form>
+{% else %}
+    <div>
+        <h2>Благодарим за предоставленную информацию!</h2>
+        <h3>Вы сообщили о себе следущее:</h3>
+        <ul>
+            <li><span>Имя:</span> {{ data.name }}</li>
+            <li><span>Город:</span> {{ data.city }}</li>
+            <li><span>Пользовались услугми нашей компании:</span> {{ data.gender }}</li>
+            <li><span>Как часто пользовались услугами нашей компании:</span> {{ data.internet }}</li>
+            <li><span>Получать новости сайта на почту:</span> {{ data.notice }}</li>
+            <li><span>Почта:</span> {{ data.email }}</li>
+            <li><span>Пожелания по работе нашей компании:</span> {{ data.message }}</li>
+        </ul>
+    </div>
+</body>
+{% endif %}
+{% endblock %}  

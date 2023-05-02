@@ -1,0 +1,26 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load static %}
+
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+
+    <ul>
+        <li>
+            <a href="https://vsemdom60.ru/">
+                <img src="{% static 'app/content/logovsemdom.png' %}" alt="Logo 1">
+            </a>
+        </li>
+        <li>
+            <a href="https://vsemdom60.ru/">
+                <img src="{% static 'app/content/logovsemdom.png' %}" alt="Logo 1">
+            </a>
+        </li>
+        <li>
+            <a href="https://vsemdom60.ru/">
+                <img src="{% static 'app/content/logovsemdom.png' %}" alt="Logo 1">
+            </a>
+        </li>
+    </ul>
+{% endblock %}

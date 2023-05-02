@@ -1,0 +1,72 @@
+{% extends "app/layout.html" %}
+
+{% block content %}
+{% load staticfiles %}
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="2000">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+        <li data-target="#myCarousel" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active">
+            <img src="{% static 'app/content/banner1.jpg'%} " alt="Первый слайд" class="img-responsive" style="height:420px;"/>
+            <div class="carousel-caption" role="option">
+               
+            </div>
+        </div>
+        <div class="item">
+            <img src="{% static 'app/content/banner2.jpg'%}" alt="Второй слайд"  class="img-responsive" style="height:420px;"/>
+            <div class="carousel-caption" role="option">
+              
+            </div>
+        </div>
+        <div class="item">
+            <img src=" {% static 'app/content/banner3.jpg'%}" alt="Третий слайд"  class="img-responsive" style="height:420px;"/>
+            <div class="carousel-caption" role="option">
+               
+            </div>
+        </div>
+    </div>
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+
+
+
+
+<div class="jumbotron">
+    <h1>Строительство домов по всей России</h1>
+    <p class="lead"> Мы ваш надежный партнер для качественного строительства домов с широким спектром услуг от проектирования до воплощения вашей мечты в реальность.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Марта</h2>
+        <img src="\static\app\content\Marta.jpg" alt="Example Image" style="max-width: 100%; max-height: 100%;">
+        <p>Проект частного дома</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Дарина</h2>
+        <img src="\static\app\content\Darina.jpg" alt="Example Image" style="max-width: 100%; max-height: 100%;">
+        <p>Проект дома</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Анжела</h2>
+        <img src="\static\app\content\Angela.jpg" alt="Example Image" style="max-width: 100%; max-height: 100%;">
+        <p>Проект каркасного дома</p>
+    </div>
+</div>
+
+{% endblock %}
